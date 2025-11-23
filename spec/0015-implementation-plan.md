@@ -34,12 +34,22 @@ agent-traveling-with-mock/
 ### Phase 1: Data & Tools (0001, 0008, 0010)
 **Goal**: Land mock datasets and deterministic tool wrappers.  
 **Tasks**:
-- [ ] Define and commit datasets (JSON/TS): attractions (id, destination, area, category, cost_level, stay_minutes, season tags, rationale), transport samples, cost tables (lodging/meal/activity bands), airports/rail hubs.
-- [ ] Implement mock tools: attraction fetcher (filters), distance/time heuristic, mock ticket generator (mode by distance/region), cost lookup utilities.
-- [ ] Optional Google Search tool: flag-gated, sanitized queries, capped results, source=google mapping.
-- [ ] Determinism: seed support, stable sorting, offline-only short-circuits Google.
+- [x] Define and commit datasets (JSON/TS): attractions (id, destination, area, category, cost_level, stay_minutes, season tags, rationale), transport samples, cost tables (lodging/meal/activity bands), airports/rail hubs.
+- [x] Implement mock tools: attraction fetcher (filters), distance/time heuristic, mock ticket generator (mode by distance/region), cost lookup utilities.
+- [x] Optional Google Search tool: flag-gated, sanitized queries, capped results, source=google mapping.
+- [x] Determinism: seed support, stable sorting, offline-only short-circuits Google.
 **Tests/Scripts**: `pnpm test data` (dataset schema checks, tool determinism, offline-only bypass).  
 **Exit/Verification**: Datasets load and pass schema checks; seeded tool runs produce identical outputs; offline-only yields zero Google items; Google tool only active when flag set and queries sanitized.
+
+### Phase 1.1: Faker-backed Mocking
+**Goal**: Replace static mock generation with faker.js to synthesize varied yet deterministic data (seeded).  
+**Tasks**:
+- [x] Add `@faker-js/faker` with deterministic seed plumbing shared across tools.
+- [x] Refactor mock generators (attractions, tickets, costs) to produce data via faker while preserving schema, caps, and determinism.
+- [x] Keep offline-only/Google gating behavior intact; ensure faker outputs remain stable per seed and destination.
+**Reference**: See `spec/0016-faker-mocking.md` for detailed faker guidance and migration plan.
+**Tests/Scripts**: `pnpm test data` (ensure faker outputs are deterministic for identical seeds and match expected bounds).  
+**Exit/Verification**: Faker-based generation produces repeatable outputs per seed; existing tests updated/passing; offline-only and Google gating unchanged.
 
 ### Phase 2: Agent Runtime (0002–0012)
 **Goal**: Implement nodes and wire LangGraph.  
@@ -128,5 +138,5 @@ pnpm test scenarios # end-to-end fixtures
 
 ## Next Steps
 1) Review/align on observability stack and UI library.  
-2) Start Phase 1 dataset/tool landing with deterministic fixtures.  
-3) Decide on scripts/tests helpers or fixtures structure if needed for Phase 1–2.
+2) Begin Phase 2 agent runtime: schemas and node wiring using new datasets/tools.  
+3) Decide on scripts/tests helpers or fixtures structure for Phase 2 scenarios.
