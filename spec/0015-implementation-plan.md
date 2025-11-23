@@ -9,13 +9,14 @@ Concrete, phase-by-phase plan aligned with specs (0001–0014). Keep determinist
 ## Project Structure (planned) — `[ ]` = pending, `[x]` = done
 ```
 agent-traveling-with-mock/
-├── app/ [ ]            # Next.js (App Router) UI + API routes
-├── agent/ [ ]          # LangGraph nodes, schemas, tools, shared types
-├── datasets/ [ ]       # Mock attractions, transport samples, cost tables
+├── app/ [x]            # Next.js (App Router) UI + API routes
+├── agent/ [x]          # LangGraph nodes, schemas, tools, shared types
+├── datasets/ [x]       # Mock attractions, transport samples, cost tables
 ├── specs/ [x]          # 0001–0015 docs
+├── tests/ [x]          # Vitest baseline
 ├── scripts/tests/ [ ]  # Optional test helpers
-├── package.json [ ]    # Single workspace (no packages/)
-└── .env.example [ ]    # Flags/keys (Google, LangSmith, OFFLINE_ONLY)
+├── package.json [x]    # Single workspace (no packages/)
+└── .env.example [x]    # Flags/keys (Google, LangSmith, OFFLINE_ONLY)
 ```
 
 ## Implementation Phases
@@ -23,10 +24,10 @@ agent-traveling-with-mock/
 ### Phase 0: Setup
 **Goal**: Tooling, repo scaffold, envs (single Next.js app).  
 **Tasks**:
-- [ ] Scaffold Next.js (TS, App Router), strict TS, ESLint/Prettier; scripts: `lint`, `test`, `dev`, `build`.
-- [ ] Add deps: `@langchain/langgraph`, `langchain`, `langsmith` (or langfuse client), `react-markdown`, `zod`, Jest/Vitest.
-- [ ] Add `.env.example` (LANGSMITH_API_KEY, GOOGLE_SEARCH_KEY/ENGINE, ENABLE_GOOGLE_SEARCH, OFFLINE_ONLY, DEBUG_LOGGING, RUN_STATE_STORE).
-- [ ] CI skeleton (lint/test/build).
+- [x] Scaffold Next.js (TS, App Router), strict TS, ESLint/Prettier; scripts: `lint`, `test`, `dev`, `build`.
+- [x] Add deps: `@langchain/langgraph`, `langchain`, `langsmith` (or langfuse client), `react-markdown`, `zod`, Jest/Vitest.
+- [x] Add `.env.example` (LANGSMITH_API_KEY, GOOGLE_SEARCH_KEY/ENGINE, ENABLE_GOOGLE_SEARCH, OFFLINE_ONLY, DEBUG_LOGGING, RUN_STATE_STORE).
+- [x] CI skeleton (lint/test/build).
 **Tests/Scripts**: `pnpm lint`, `pnpm test` (baseline), typecheck.  
 **Exit/Verification**: CI green; env scaffold committed; deps installed; scripts run without errors.
 
@@ -127,5 +128,5 @@ pnpm test scenarios # end-to-end fixtures
 
 ## Next Steps
 1) Review/align on observability stack and UI library.  
-2) Execute Phase 0 tasks and wire `pnpm` scripts.  
-3) Start Phase 1 dataset/tool landing with deterministic fixtures.
+2) Start Phase 1 dataset/tool landing with deterministic fixtures.  
+3) Decide on scripts/tests helpers or fixtures structure if needed for Phase 1–2.

@@ -1,0 +1,74 @@
+:root {
+  color-scheme: light;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: #f6f7fb;
+  color: #0f172a;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: radial-gradient(circle at 20% 20%, #e8edff 0, #f6f7fb 40%),
+    radial-gradient(circle at 80% 0%, #eef7ff 0, #f6f7fb 38%),
+    #f6f7fb;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 64px 24px 96px;
+}
+
+.hero {
+  background: #ffffffcc;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 12px 50px rgba(15, 23, 42, 0.08);
+}
+
+.hero h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.hero p {
+  font-size: 1.05rem;
+  color: #334155;
+  margin-bottom: 16px;
+}
+
+.hero .pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #0ea5e91a;
+  color: #0369a1;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 1px solid #bae6fd;
+}
+
+.hero ul {
+  list-style: disc;
+  padding-left: 24px;
+  color: #0f172a;
+}
+
+.hero li {
+  margin: 8px 0;
+}

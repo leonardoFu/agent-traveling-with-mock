@@ -1,0 +1,43 @@
+{
+  "name": "agent-traveling-with-mock",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Travel planning agent with mock tools and Next.js front-end.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest watch"
+  },
+  "dependencies": {
+    "@langchain/langgraph": "^1.0.2",
+    "langchain": "^1.0.6",
+    "langsmith": "^0.3.81",
+    "next": "14.2.33",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-markdown": "^10.1.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.1.0",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/node": "^22.9.3",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "14.2.33",
+    "jsdom": "^24.1.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.4"
+  },
+  "engines": {
+    "node": ">=18.18.0"
+  },
+  "packageManager": "pnpm@9.6.0"
+}
